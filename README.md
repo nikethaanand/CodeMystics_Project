@@ -29,4 +29,7 @@ The Connection class initiated a connection to the MongoDB. This class also set 
 
 The UML is available in [link](https://asset.cloudinary.com/dlf1ttson/559f990f6fcfa4e9a18cd0673387c66b)
 
+### Deployment Instructions
+On local IDE (recommended Intellij): Build the artifact and deploy it using Tomcat Server. 
+<br> To deploy into remote host environment, build the artifact war file and upload it to server of chosen. 
 
