@@ -7,8 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.core.Application;
 import java.io.IOException;
 
 @WebServlet(name = "MysticApp", value = "/api")
@@ -26,18 +24,30 @@ public class MysticsApplication extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_ACCEPTED);
-        response.setContentType("application/json");
         String urlPath = request.getPathInfo();
+        System.out.println(urlPath);
         Gson gson = new Gson();
         // check for valid url
-        if (urlPath == null || urlPath.isEmpty() || !isUrlValid(urlPath)) {
+        if (urlPath == null || urlPath.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            SwipeResponse swipeResponse = new SwipeResponse();
-            swipeResponse.setMessage("invalid url");
-            response.getOutputStream().print(gson.toJson(swipeResponse));
+            response.getOutputStream().print(gson.toJson("Invalid Url"));
             response.getOutputStream().flush();
             return;
         }
+        if (urlPath.equals("/user/save")){
+            StringBuilder sb = new StringBuilder();
+            String s;
+            while((s = request.getReader().readLine()) != null) {
+                sb.append(s);
+            }
+            User user = (User) gson.fromJson(sb.toString(), User.class);
+            UserInformation userController = new UserInformation();
+            userController.saveUser(user);
+        }
+
+        response.setStatus(HttpServletResponse.SC_ACCEPTED);
+        response.getOutputStream().print(gson.toJson("Data Saved"));
+        response.getOutputStream().flush();
     }
 
 }

@@ -22,5 +22,13 @@ under the License.
     "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
+    <servlet>
+        <servlet-name>MysticsApplication</servlet-name>
+        <servlet-class>codemystics.MysticsApplication</servlet-class>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>MysticsApplication</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
 </web-app>

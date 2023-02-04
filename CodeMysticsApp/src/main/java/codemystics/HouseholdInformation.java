@@ -5,7 +5,7 @@ import mongodb.DataModel;
 import java.util.Date;
 
 public class HouseholdInformation implements DataModel {
-    private long userId;
+    private String userId;
     private long electricityUsage;
     private int householdNumbers;
     private Date billDate;
@@ -17,7 +17,7 @@ public class HouseholdInformation implements DataModel {
      * @param householdNumbers
      * @param billDate
      */
-    public HouseholdInformation(long userId, long electricityUsage, int householdNumbers, Date billDate) {
+    public HouseholdInformation(String userId, long electricityUsage, int householdNumbers, Date billDate) {
         this.userId = userId;
         this.electricityUsage = electricityUsage;
         this.householdNumbers = householdNumbers;
@@ -30,7 +30,7 @@ public class HouseholdInformation implements DataModel {
     public HouseholdInformation(){
 
     }
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 

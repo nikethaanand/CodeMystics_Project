@@ -1,3 +1,33 @@
+POST http://localhost:8081/CodeMysticsApp_war_exploded/api/user/save
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userId": "123",
+  "firstName": "firstName",
+  "lastName": "lastName",
+  "email": "@yahoo.com"
+  }
+
+<> 2023-02-04T133223.404.html
+
+###
+
+POST http://localhost:8081/CodeMysticsApp_war_exploded/api/user/save
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userId": "123",
+  "firstName": "firstName",
+  "lastName": "lastName",
+  "email": "@yahoo.com"
+  }
+
+<> 2023-02-04T133158.404.html
+
+###
+
 GET http://localhost:8088/CodeMysticsApp_war_exploded/api/user/try
 
 <> 2023-02-04T123833.404.html
