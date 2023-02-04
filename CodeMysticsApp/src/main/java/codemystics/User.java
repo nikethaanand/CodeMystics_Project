@@ -16,6 +16,13 @@ public class User implements DataModel {
         this.email = email;
     }
 
+    /**
+     * Public empty constructor for POJO mapping
+     */
+    public User(){
+
+    }
+
     public String getUserId() {
         return userId;
     }
