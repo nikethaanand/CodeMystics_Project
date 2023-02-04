@@ -1,22 +1,39 @@
 package codemystics;
 
+import mongodb.DataModel;
+
 import java.util.Date;
 
-public class TransportationInfo {
+public class TransportationInfo implements DataModel {
     private long userId;
     private long milesPerMonth;
-    private TransportationMode modeOfTransportation;
+    // private TransportationMode modeOfTransportation;
+    private String modeOfTransportation;
     private int averageMPG;
     private Date billDate;
 
-    public TransportationInfo(long userId, long milesPerMonth, TransportationMode modeOfTransportation, int averageMPG, Date billDate) {
+    /**
+     * Constructor
+     * @param userId
+     * @param milesPerMonth
+     * @param modeOfTransportation
+     * @param averageMPG
+     * @param billDate
+     */
+    public TransportationInfo(long userId, long milesPerMonth, String modeOfTransportation, int averageMPG, Date billDate) {
         this.userId = userId;
         this.milesPerMonth = milesPerMonth;
-        this.modeOfTransportation = modeOfTransportation;
+        this.modeOfTransportation = modeOfTransportation.toString();
         this.averageMPG = averageMPG;
         this.billDate = billDate;
     }
 
+    /**
+     * Public empty constructor for POJO mapping
+     */
+    public TransportationInfo(){
+
+    }
     public long getUserId() {
         return userId;
     }
@@ -25,9 +42,9 @@ public class TransportationInfo {
         return milesPerMonth;
     }
 
-    public TransportationMode getModeOfTransportation() {
-        return modeOfTransportation;
-    }
+/*    public TransportationMode getModeOfTransportation() {
+        return new TransportationMode();
+    }*/
 
     public int getAverageMPG() {
         return averageMPG;
