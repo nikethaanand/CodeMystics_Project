@@ -5,9 +5,8 @@ import mongodb.DataModel;
 import java.util.Date;
 
 public class TransportationInfo implements DataModel {
-    private long userId;
+    private String userId;
     private long milesPerMonth;
-    // private TransportationMode modeOfTransportation;
     private String modeOfTransportation;
     private int averageMPG;
     private Date billDate;
@@ -20,10 +19,10 @@ public class TransportationInfo implements DataModel {
      * @param averageMPG
      * @param billDate
      */
-    public TransportationInfo(long userId, long milesPerMonth, String modeOfTransportation, int averageMPG, Date billDate) {
+    public TransportationInfo(String userId, long milesPerMonth, String modeOfTransportation, int averageMPG, Date billDate) {
         this.userId = userId;
         this.milesPerMonth = milesPerMonth;
-        this.modeOfTransportation = modeOfTransportation.toString();
+        this.modeOfTransportation = modeOfTransportation;
         this.averageMPG = averageMPG;
         this.billDate = billDate;
     }
@@ -34,7 +33,7 @@ public class TransportationInfo implements DataModel {
     public TransportationInfo(){
 
     }
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 

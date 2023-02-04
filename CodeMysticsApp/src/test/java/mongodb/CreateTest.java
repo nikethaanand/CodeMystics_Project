@@ -21,13 +21,13 @@ public class CreateTest extends TestCase {
     }
 
     public void testInsertRecordHousehold() throws Exception {
-        HouseholdInformation house = new HouseholdInformation(123, 200,200, new Date(2023,02, 04));
+        HouseholdInformation house = new HouseholdInformation("123", 200,200, new Date(2023,02, 04));
         Create create = new Create();
         create.insertRecord(house,Connection.HOUSETYPE);
     }
 
     public void testInsertRecordTransport() throws Exception {
-        TransportationInfo transport = new TransportationInfo(123, 200,"car", 200, new Date(2023,02, 04));
+        TransportationInfo transport = new TransportationInfo("123", 200,"car", 200, new Date(2023,02, 04));
         Create create = new Create();
         create.insertRecord(transport,Connection.TRANSPORTTYPE);
     }

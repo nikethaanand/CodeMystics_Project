@@ -3,7 +3,6 @@ package codemystics;
 import mongodb.DataModel;
 
 public class User implements DataModel {
-    // private long userId;
     private String userId;
     private String firstName;
     private String lastName;
