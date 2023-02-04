@@ -1,5 +1,7 @@
 package codemystics;
 
+import com.google.gson.Gson;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,4 +20,24 @@ public class MysticsApplication extends HttpServlet {
         response.setStatus(HttpServletResponse.SC_ACCEPTED);
         response.getWriter().write("no get method");
     }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("application/json");
+        response.setStatus(HttpServletResponse.SC_ACCEPTED);
+        response.setContentType("application/json");
+        String urlPath = request.getPathInfo();
+        Gson gson = new Gson();
+        // check for valid url
+        if (urlPath == null || urlPath.isEmpty() || !isUrlValid(urlPath)) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            SwipeResponse swipeResponse = new SwipeResponse();
+            swipeResponse.setMessage("invalid url");
+            response.getOutputStream().print(gson.toJson(swipeResponse));
+            response.getOutputStream().flush();
+            return;
+        }
+    }
+
 }
